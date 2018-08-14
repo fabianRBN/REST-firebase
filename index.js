@@ -2,7 +2,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-
+var port = process.env.PORT || 3000;
 
 app.use(bodyParser.json()); // Recuperacion de informacion enviada por el body.
 var firebase = require('firebase');
@@ -101,7 +101,7 @@ app.delete('/', function (req, res) {
    //todo
 });
 
-var server = app.listen(8080, function () {
+var server = app.listen(port, function () {
   
    var host = server.address().address;
    var port = server.address().port;
