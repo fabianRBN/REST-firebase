@@ -44,12 +44,13 @@ app.put('/', function (req, res) {
   // 
 	var userName = req.body.UserName;
 	var name = req.body.Name;
-	var age = req.body.Age;
+	var ageExperiencia = req.body.AgeExperiencia;
+	var profesion = req.body.Profesion;
 
   var referencePath = '/Users/'+userName+'/';
   // Creacion de una referencia del nodo de firebase.
 	var userReference = firebase.database().ref(referencePath);
-	userReference.set({Name: name, Age: age}, 
+	userReference.set({Name: name, AgeExperiencia: ageExperiencia, Profesion:profesion}, 
 				 function(error) {
 					if (error) {
 						res.send("Datos no guardados." + error);
@@ -67,11 +68,12 @@ app.post('/', function (req, res) {
 
 	var userName = req.body.UserName;
 	var name = req.body.Name;
-	var age = req.body.Age;
+	var ageExperiencia = req.body.AgeExperiencia;
+	var profesion = req.body.Profesion;
 
 	var referencePath = '/Users/'+userName+'/';
 	var userReference = firebase.database().ref(referencePath);
-	userReference.update({Name: name, Age: age}, 
+	userReference.update({Name: name, AgeExperiencia: ageExperiencia,Profesion:profesion}, 
 				 function(error) {
 					if (error) {
 						res.send("Datos no actualizados." + error);
